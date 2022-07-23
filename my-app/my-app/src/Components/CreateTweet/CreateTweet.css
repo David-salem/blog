@@ -1,0 +1,46 @@
+.box {
+    height: 150px;
+    width: 650px;
+    border-radius: 4px;
+    background-color: #15202B;
+    padding-top: 10px;
+    border: solid #CCCCCC;
+}
+
+.box textarea {
+    background-color: #15202B;
+    width: 95%;
+    height: 55%;
+    padding: 10px;
+    color: white;
+    display: block;
+    border: none;
+    resize: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+}
+
+.box textarea::-webkit-input-placeholder {
+    color: #fff;
+    }
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.bottom button {
+    display: flex;
+    margin: 5px;
+    height: 30px;
+}
+
+.pharagraph {
+    display: flex;
+    font-family: 'Quicksand', sans-serif;
+    height: 50px;
+    width: 400px;
+    color: red;
+}
