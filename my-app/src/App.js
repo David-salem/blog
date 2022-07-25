@@ -1,23 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from "react";
+import { CreateTweet } from './Components/CreateTweet/CreateTweet.jsx';
+import { nanoid } from 'nanoid';
+import { TweetList } from './Components/TweetList/TweetList';
+import localforage from "localforage";
 
 function App() {
+  const [tweet, setTweet] = useState ([]);
+
+  const addTweet = (message) => {
+    const newTweet = {
+        id: nanoid(),
+        message: message,
+        date: new Date().toISOString(),
+    }
+    const addAnotherTweet = [...tweet, newTweet];
+    setTweet(addAnotherTweet);
+  };
+
+  useEffect(() => {
+    localforage.setItem('Tweets', tweet).then((val) => {
+    })
+  }, [tweet])
+  
+  useEffect(() => {
+    localforage.getItem('Tweets').then((val) => {
+        if(val === null) {
+            setTweet([]);
+        } else {
+          setTweet(val);
+        }
+    })
+  }, []);
+
+  tweet.sort((a, b) => (a.date > b.date) ? -1 : 1)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div align="center">
+        <CreateTweet 
+        handleAddTweet={ addTweet }
+        />
+        <TweetList
+        tweet={ tweet }
+        />
     </div>
   );
 }
