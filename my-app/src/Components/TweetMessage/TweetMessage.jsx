@@ -1,6 +1,6 @@
 import "./TweetMessage.css";
 
-export const TweetMessage = ({ message, date }) => {
+export const TweetMessage = ({ content, date }) => {
     return (
         <div className="box-message">
             <div className="information">
@@ -8,7 +8,7 @@ export const TweetMessage = ({ message, date }) => {
                 <p className="date">{ date }</p>
             </div>
             <div align="left" className="message">
-                {message}
+                {content}
             </div>
         </div>
     )

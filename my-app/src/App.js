@@ -1,38 +1,35 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
 import { CreateTweet } from './Components/CreateTweet/CreateTweet.jsx';
-import { nanoid } from 'nanoid';
 import { TweetList } from './Components/TweetList/TweetList';
-import localforage from "localforage";
+import axios from 'axios';
+const url = "https://micro-blogging-dot-full-stack-course-services.ew.r.appspot.com"
 
 function App() {
   const [tweet, setTweet] = useState ([]);
 
-  const addTweet = (message) => {
+  // Adding a new tweet
+  const addTweet = (content, date, id) => {
     const newTweet = {
-        id: nanoid(),
-        message: message,
-        date: new Date().toISOString(),
+      content: content,
+      userName: "yonatan",
+      date: date,
+      id: id,
     }
     const addAnotherTweet = [...tweet, newTweet];
     setTweet(addAnotherTweet);
   };
-
-  useEffect(() => {
-    localforage.setItem('Tweets', tweet).then((val) => {
-    })
-  }, [tweet])
   
+  // Bring from the server the tweets
   useEffect(() => {
-    localforage.getItem('Tweets').then((val) => {
-        if(val === null) {
-            setTweet([]);
-        } else {
-          setTweet(val);
-        }
+    axios.get(`${url}/tweet`)
+    .then(res => {
+      let data = res.data.tweets
+      setTweet(data);
     })
   }, []);
-
+ 
+  //Organizing them
   tweet.sort((a, b) => (a.date > b.date) ? -1 : 1)
 
   return (

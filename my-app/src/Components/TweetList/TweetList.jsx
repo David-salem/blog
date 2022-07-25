@@ -8,7 +8,7 @@ export const TweetList = ({ tweet }) => {
                         <TweetMessage
                         key={ tweet.id}
                         id={ tweet.id } 
-                        message={ tweet.message } 
+                        content={ tweet.content } 
                         date={ tweet.date }
                         />
                     ))}
