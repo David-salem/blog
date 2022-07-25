@@ -1,0 +1,57 @@
+.box-profile {
+    margin: 110px 0 0 370px;
+}
+
+.box-profile>h2{
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 42px;
+
+color: #FFFFFF;
+}
+
+.box-form{
+    border-color: 3px solid red;
+}
+
+.box-form>form>label{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;  
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.box-form>form>input{
+    display: block;
+    width: 600px;
+    height: 61px;
+    border-radius: 6px;
+    border: 2px solid #CCCCCC;
+    background-color: #15202B;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    padding-left: 16px;
+}
+.box-form>form>input::-webkit-input-placeholder {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.box-form>form>button{
+    margin: 16px 0 0 559px;
+}

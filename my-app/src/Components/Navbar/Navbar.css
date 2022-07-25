@@ -1,0 +1,32 @@
+.box-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar {
+    width: 1076px;
+    height: 58px;   
+    background: #343A40;
+    border-radius: 6px;
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Roboto';
+    align-items: center;
+}
+
+.navbar > a{
+    margin-left: 45px;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar a.active {
+    color: white;
+    text-decoration-color: white;
+  }
+.navbar a.inactive {
+    color: black;
+  }
