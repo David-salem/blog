@@ -1,13 +1,22 @@
 import './ProfilePage.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from '@mui/material/Button';
+import localforage from "localforage";
 
 export const ProfilePage = () => {
-    const [name, setName] = useState("Yonatan");
+    const [name, setName] = useState("");
+    const [newName, setNewName] = useState("");
 
-    const getName = () => {
-        console.log(name);
-    }
+    useEffect(() => {
+        localforage.setItem('Name', newName).then(() => {
+        })
+      }, [newName]);
+
+      const getName = () => {
+        setNewName(name);
+        setName("");
+      }
+
     return (
         <div className="box-profile" align="left">
             <h2>Profile</h2>
@@ -17,11 +26,11 @@ export const ProfilePage = () => {
                     <input 
                     type="text" 
                     name="userName" 
-                    placeholder="Yonatan"
+                    placeholder="Change User Name"
                     value={name} 
                     onChange={e => setName(e.target.value)}
                     ></input>
-                    <Button variant="contained" onClick={ getName() }>Save</Button>
+                    <Button variant="contained" onClick={ getName }>Save</Button>
                 </form>
             </div>
         </div>

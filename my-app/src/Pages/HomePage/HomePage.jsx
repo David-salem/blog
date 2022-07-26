@@ -8,10 +8,10 @@ export const HomePage = () => {
     const [tweet, setTweet] = useState ([]);
 
     // Create a new Tweet
-    const addTweet = (content, date, id) => {
+    const addTweet = (content, date, id, name) => {
       const newTweet = {
         content: content,
-        userName: "yonatan",
+        userName: name,
         date: date,
         id: id,
       }

@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';
 import { nanoid } from 'nanoid';
+import localforage from "localforage";
 const url = "https://micro-blogging-dot-full-stack-course-services.ew.r.appspot.com"
 
 export const CreateTweet = ({ handleAddTweet }) => {
@@ -11,21 +12,33 @@ export const CreateTweet = ({ handleAddTweet }) => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
+    const [name, setName] = useState("");
 
     // Defining data of the tweet
     const data = {
         content: tweet,
-        userName: "yonatan",
+        userName: name,
         date: new Date().toISOString(),
         id: nanoid()
-    }
+    };
+
+    // Bring the userName
+    useEffect(() => {
+        localforage.getItem('Name').then((val) => {
+            if(val === "") {
+                setName("Yonatan");
+            } else {
+                setName(val);
+            }
+        })
+      }, []);
 
     //Creating a new tweet onSubmit
     const handleSubmit = () => {
     if(tweet.trim().length > 0){
             setLoading(true);
         axios.post(`${url}/tweet`, data).then(res => {
-            handleAddTweet(tweet, data.date, data.id);
+            handleAddTweet(tweet, data.date, data.id, data.userName);
             setLoading(false);
             setTweet("");
         }).catch(err => {

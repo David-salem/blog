@@ -10,6 +10,7 @@ export const TweetList = ({ tweet }) => {
                         id={ tweet.id } 
                         content={ tweet.content } 
                         date={ tweet.date }
+                        userName={ tweet.userName }
                         />
                     ))}
         </div>
