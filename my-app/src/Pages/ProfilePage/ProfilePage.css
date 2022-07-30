@@ -28,7 +28,7 @@ color: #FFFFFF;
     margin-bottom: 6px;
 }
 
-.box-form>form>input{
+.box-form>form>label>input{
     display: block;
     width: 600px;
     height: 61px;

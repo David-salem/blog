@@ -7,6 +7,7 @@ export const ProfilePage = () => {
     const [name, setName] = useState("");
     const [newName, setNewName] = useState("");
 
+    // Save the new name locally
     useEffect(() => {
         localforage.setItem('Name', newName).then(() => {
         })
@@ -22,14 +23,16 @@ export const ProfilePage = () => {
             <h2>Profile</h2>
             <div className="box-form">
                 <form>
-                    <label for="userName" >User Name</label>
-                    <input 
-                    type="text" 
-                    name="userName" 
-                    placeholder="Change User Name"
-                    value={name} 
-                    onChange={e => setName(e.target.value)}
-                    ></input>
+                    <label>
+                        User Name
+                        <input 
+                        type="text" 
+                        name="userName" 
+                        placeholder="Change User Name"
+                        value={name} 
+                        onChange={e => setName(e.target.value)}
+                        ></input>
+                    </label>
                     <Button variant="contained" onClick={ getName }>Save</Button>
                 </form>
             </div>

@@ -1,17 +1,21 @@
 import './TweetList.css';
-import { TweetMessage } from '../TweetMessage/TweetMessage.jsx';
+import React, { useContext } from "react";
+import { stateContext } from "../../context";
 
-export const TweetList = ({ tweet }) => {
+export const TweetList = () => {
+    const { objectTweet } = useContext(stateContext);
     return (
         <div className="box-list">
-                    {tweet.map((tweet) => (
-                        <TweetMessage
-                        key={ tweet.id}
-                        id={ tweet.id } 
-                        content={ tweet.content } 
-                        date={ tweet.date }
-                        userName={ tweet.userName }
-                        />
+                    {objectTweet.map((objectTweet) => (
+                            <div className="box-message" key={objectTweet.id}>
+                                <div className="information">
+                                    <p className="name">{ objectTweet.userName }</p>
+                                    <p className="date">{ objectTweet.date }</p>
+                                </div>
+                                <div align="left" className="message">
+                                    {objectTweet.content}
+                                </div>
+                            </div>
                     ))}
         </div>
     )
