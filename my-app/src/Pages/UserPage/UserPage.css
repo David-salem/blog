@@ -1,0 +1,117 @@
+.wrapper-user {
+    background-color: #15202B;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.box-user {
+    display: block;
+    width: 517px;
+    height: 765px;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.box-user>h3 {
+    width: 184px;
+    height: 29px;
+
+    font-family: 'Rockwell';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    margin-top: 60px;
+
+    color: #000000;
+
+}
+
+.option-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.option-user>hr {
+    border: 1px solid gray;
+    width: 55.5px;
+    ;
+    height: 0;
+}
+
+.option-user>p {
+    font-family: 'Rockwell';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    color: #949495;
+}
+
+.box-user>form {
+    margin-top: 45px;
+}
+
+.box-user>form>label {
+    font-family: 'Rockwell';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+
+    color: #000000;
+}
+
+.box-user>form>input {
+    display: block;
+    width: 200px;
+    height: 40px;
+    border-radius: 6px;
+    border: 2px solid #CCCCCC;
+    background-color: white;
+    color: gray;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    padding-left: 10px;
+    margin: 10px;
+}
+
+.btn {
+    display: block;
+    width: 100px;
+    margin-top: 25px;
+    width: 337px;
+    height: 69px;
+
+    background: rgb(48, 202, 202);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Rockwell';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+
+    color: #FFFFFF;
+}
+
+.switcher>p>a {
+    text-decoration: none;
+    color: #5B86E6;
+}

@@ -3,21 +3,25 @@
 }
 
 .box-profile>h2{
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 36px;
-line-height: 42px;
-
-color: #FFFFFF;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 42px;
+    
+    color: #FFFFFF;
 }
 
-.box-form{
-    border-color: 3px solid red;
+.form-group, .form-group-pic{
+    width: 620px;
 }
 
-.box-form>form>label{
+.form-group-pic{
+    margin-top: 25px;
+}
+
+.form-group>label, .form-group-pic>label{
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -28,7 +32,7 @@ color: #FFFFFF;
     margin-bottom: 6px;
 }
 
-.box-form>form>label>input{
+.form-group>label>input{
     display: block;
     width: 600px;
     height: 61px;
@@ -43,7 +47,7 @@ color: #FFFFFF;
     line-height: 19px;
     padding-left: 16px;
 }
-.box-form>form>input::-webkit-input-placeholder {
+.form-group>input::-webkit-input-placeholder {
     color: #fff;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -52,6 +56,17 @@ color: #FFFFFF;
     line-height: 19px;
 }
 
-.box-form>form>button{
-    margin: 16px 0 0 559px;
+.input-design{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-upload {
+    display:inline-block;
+    width: 505px;
 }

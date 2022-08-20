@@ -1,35 +1,49 @@
-import React, { useEffect, useContext } from "react";
-import axios from 'axios';
+import React, { useEffect, useContext, useState } from "react";
 import { CreateTweet } from '../../Components/CreateTweet/CreateTweet';
 import { TweetList } from '../../Components/TweetList/TweetList';
-import { stateContext } from "../../context";
-const url = "https://micro-blogging-dot-full-stack-course-services.ew.r.appspot.com";
+import { stateContext } from "../../Utils/context";
+import { APIController } from '../../Utils/Firebase';
+import Button from "@mui/material/Button";
+import CircularProgress from '@mui/material/CircularProgress';
+import Alert from '@mui/material/Alert';
+
 
 export const HomePage = () => {
-  const { objectTweet, setObjectTweet } = useContext(stateContext);
-    
-    //Bring all the tweets and refresh every 5 seconds
+  const { setObjectTweet } = useContext(stateContext);
+  const [lastVisible, setLastVisible] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+                    
+    const handleScrollDown = (e) => {
+        APIController.loadNextTweets(setObjectTweet, 
+                        setLastVisible, 
+                        lastVisible, 
+                        setLoading,
+                        setMessage,
+                        setIsButtonDisabled
+                        );
+        }
+
     useEffect(() => {
-      let timer = setTimeout(() => {
-        axios.get(`${url}/tweet`)
-        .then(res => {
-          let data = res.data.tweets
-          setObjectTweet(data);
-        })
-      }, 5000);
-    
-      return () => {
-          clearTimeout(timer);
-      }
-    });
-  
-    //Organizing them in decending order
-    objectTweet.sort((a, b) => (a.date > b.date) ? -1 : 1);
+        APIController.getMessageFromDb(setObjectTweet, setLastVisible, setLoading);
+    }, []);
 
     return (
-        <div align="center">
+    <div align="center">
         <CreateTweet />
         <TweetList /> 
+        {message && <Alert severity="error" style={{width: 570}}>{message}</Alert>}
+        { loading ?
+                <CircularProgress />
+                      :
+                <Button 
+                variant="contained" 
+                color="success" 
+                onClick={ handleScrollDown }
+                disabled={ isButtonDisabled }
+                >load more</Button>
+            }
     </div>
     )
 }

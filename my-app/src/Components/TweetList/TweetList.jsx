@@ -1,6 +1,6 @@
 import './TweetList.css';
 import React, { useContext } from "react";
-import { stateContext } from "../../context";
+import { stateContext } from "../../Utils/context";
 
 export const TweetList = () => {
     const { objectTweet } = useContext(stateContext);
